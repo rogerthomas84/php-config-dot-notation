@@ -1,0 +1,24 @@
+{
+  "name": "rogerthomas84/php-config-dot-notation",
+  "description": "Interact with config using a dot notation",
+  "keywords": ["config", "configdot", "dot", "notation", "php"],
+  "homepage": "https://github.com/rogerthomas84/php-config-dot-notation",
+  "license": "Proprietary",
+  "authors": [
+    {
+      "name": "Roger Thomas",
+      "email": "rogere84@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "autoload": {
+    "files": [
+      "src/ConfigDot.php"
+    ]
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  }
+}
