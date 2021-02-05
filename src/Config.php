@@ -1,13 +1,15 @@
 <?php
+namespace ConfigDot;
+
 /**
- * Class ConfigDot
+ * Class Config
  */
-class ConfigDot
+class Config
 {
     /**
      * Static variable, holding the instance of this Singleton.
      *
-     * @var ConfigDot|null
+     * @var Config|null
      */
     protected static $_instance = null;
 
@@ -24,7 +26,7 @@ class ConfigDot
     protected $resolvedConfig = [];
 
     /**
-     * ConfigDot constructor. Protected to avoid direct construction.
+     * Config constructor. Protected to avoid direct construction.
      */
     protected function __construct()
     {
@@ -33,9 +35,9 @@ class ConfigDot
     /**
      * Retrieve an instance of this object.
      *
-     * @return ConfigDot
+     * @return Config
      */
-    protected static function getInstance(): ConfigDot
+    protected static function getInstance(): Config
     {
         if (null === self::$_instance) {
             self::$_instance = new self();
@@ -79,7 +81,7 @@ class ConfigDot
      *
      * @param null $key
      * @return string|array|int|float|bool|null
-     * @example ConfigDot::getInstance()->get(
+     * @example Config::getInstance()->get(
      *      'foo.bar.joe.bloggs'
      * );
      *
@@ -108,17 +110,17 @@ class ConfigDot
      *
      * @param string $key
      * @param array $conf
-     * @param ConfigDot|null $instance
+     * @param Config|null $instance
      * @return string|array|int|float|bool|null
      * @example self::fromDot(
      *      'foo.bar.joe.bloggs',
      *      $this->config
      * );
      */
-    protected static function fromDot(string $key, array $conf, ConfigDot $instance = null)
+    protected static function fromDot(string $key, array $conf, Config $instance = null)
     {
         if (null === $instance) {
-            $instance = ConfigDot::getInstance();
+            $instance = Config::getInstance();
         }
         if (array_key_exists($key, $conf)) {
             return $conf[$key];

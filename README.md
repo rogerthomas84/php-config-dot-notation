@@ -1,7 +1,7 @@
 ConfigDot
 ====
 
-Get config from an array using a dot notation.
+Get and set config from an array using a dot notation.
 
 ## Usage:
 
@@ -15,7 +15,7 @@ $config = [
         'version' => 1
     ]
 ];
-ConfigDot::setConfig($config);
+\ConfigDot\Config::setConfig($config);
 ```
 
 #### Get a value:
@@ -24,7 +24,7 @@ ConfigDot::setConfig($config);
 <?php
 // set the config as above
 
-$appName = ConfigDot::get('app.name');
+$appName = \ConfigDot\Config::get('app.name');
 // $appName = string(7) "Foo Bar" (or null if it does not exist)
 ```
 
@@ -34,7 +34,7 @@ $appName = ConfigDot::get('app.name');
 <?php
 // set the config as above
 
-if (ConfigDot::has('app.name')) {
+if (\ConfigDot\Config::has('app.name')) {
     // it does!
 }
 ```
@@ -48,5 +48,5 @@ value will be returned from a `get` request.
 <?php
 // set the config as above
 
-ConfigDot::update('app.name', 'Wolf');
+\ConfigDot\Config::update('app.name', 'Wolf');
 ```

@@ -1,4 +1,6 @@
 <?php
+
+use ConfigDot\Config;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,20 +16,20 @@ class ConfigDotTest extends TestCase
                 'version' => 1
             ]
         ];
-        ConfigDot::setConfig($config);
-        $this->assertFalse(ConfigDot::has('no.such.key'));
+        Config::setConfig($config);
+        $this->assertFalse(Config::has('no.such.key'));
 
-        $this->assertTrue(ConfigDot::has('app.name'));
-        $this->assertEquals('Foo Bar', ConfigDot::get('app.name'));
-        $this->assertTrue(ConfigDot::has('app.version'));
-        $this->assertEquals(1, ConfigDot::get('app.version'));
+        $this->assertTrue(Config::has('app.name'));
+        $this->assertEquals('Foo Bar', Config::get('app.name'));
+        $this->assertTrue(Config::has('app.version'));
+        $this->assertEquals(1, Config::get('app.version'));
 
-        $this->assertEquals($config, ConfigDot::get());
+        $this->assertEquals($config, Config::get());
 
-        ConfigDot::update('app.name', 'Wolf');
-        $this->assertEquals('Wolf', ConfigDot::get('app.name'));
+        Config::update('app.name', 'Wolf');
+        $this->assertEquals('Wolf', Config::get('app.name'));
 
-        ConfigDot::update('app.version', 2);
-        $this->assertEquals(2, ConfigDot::get('app.version'));
+        Config::update('app.version', 2);
+        $this->assertEquals(2, Config::get('app.version'));
     }
 }
